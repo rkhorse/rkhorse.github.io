@@ -83,47 +83,6 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
-    <title>PicGo+Typora+Gitee配置图床</title>
-    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
-<span id="more"></span>
-
-<blockquote>
-<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
-<ul>
-<li>下载插件</li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
-<ul>
-<li>设置图床</li>
-</ul>
-<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
-<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
-<ul>
-<li>配置gitee私人令牌</li>
-</ul>
-<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
-<blockquote>
-<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
-<p>打开typora–&gt;偏好设置–&gt;图像</p>
-<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
-<hr>
-<blockquote>
-<p>总结：</p>
-<ul>
-<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
-<li>申请gitee私人令牌</li>
-<li>配置typora图像设置为上传服务</li>
-</ul>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>PicGo</tag>
-        <tag>typora</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+Gitee搭建个人博客</title>
     <url>/2021/04/12/hexo+gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<blockquote>
@@ -232,6 +191,47 @@ Hostname：linux主机的ip地址
       <tags>
         <tag>gitee</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PicGo+Typora+Gitee配置图床</title>
+    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
+<ul>
+<li>下载插件</li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
+<ul>
+<li>设置图床</li>
+</ul>
+<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
+<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
+<ul>
+<li>配置gitee私人令牌</li>
+</ul>
+<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
+<blockquote>
+<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
+<p>打开typora–&gt;偏好设置–&gt;图像</p>
+<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
+<hr>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
+<li>申请gitee私人令牌</li>
+<li>配置typora图像设置为上传服务</li>
+</ul>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>PicGo</tag>
+        <tag>typora</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
