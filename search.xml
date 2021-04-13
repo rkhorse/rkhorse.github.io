@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IDA动态调试ELF文件</title>
-    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>IDA动态调试ELF文件</p>
-<span id="more"></span>
-
-<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
-<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">32</span>位: IDA目录\dbgsrv\linux_server<br><span class="hljs-number">64</span>位: IDA目录\dbgsrv\linux_server64<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ chmod +x linux_server64<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>启动linux_server</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ./linux_server64</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
-<blockquote>
-<pre>
-Application: 要调试程序路径
-Directory: 存放呗调试程序的路径
-Hostname：linux主机的ip地址
-其它默认
-</pre>
-</blockquote>
-<p>ok即可进入<code>IDA</code>动态调试。</p>
-]]></content>
-      <tags>
-        <tag>IDA</tag>
-        <tag>病毒分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一.汇编概述</title>
     <url>/2021/04/14/01.%E6%B1%87%E7%BC%96%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<blockquote>
@@ -74,7 +34,7 @@ Hostname：linux主机的ip地址
 <ul>
 <li>编写测试程序：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs asm">.586 ; 指令集<br>.model flat, stdcall ; 内存使用模式flat， stdcall 调用约定<br>option casemap:none<br><br>include windows.inc ; 类似于包含头文件<br>include user32.inc<br>include kernel32.inc<br>includelib user32.lib ; 链接库<br>includelib kernel32.lib<br><br>.data<br>text db &quot;HelloWorld&quot;, 0<br><br>.code<br>main proc ; proc 函数的意思, main 入口点，自己指定的<br>	invoke MessageBox, 0, offset text, 0, 0<br>	invoke ExitProcess, 0<br>main endp<br>end main ; main 是一个标号，END main 是告诉编译器，起始位置在哪<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.586 ; 指令集</span><br><span class="line">.model flat, stdcall ; 内存使用模式flat， stdcall 调用约定</span><br><span class="line">option casemap:none</span><br><span class="line"></span><br><span class="line">include windows.inc ; 类似于包含头文件</span><br><span class="line">include user32.inc</span><br><span class="line">include kernel32.inc</span><br><span class="line">includelib user32.lib ; 链接库</span><br><span class="line">includelib kernel32.lib</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">text db &quot;HelloWorld&quot;, 0</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line">main proc ; proc 函数的意思, main 入口点，自己指定的</span><br><span class="line">	invoke MessageBox, 0, offset text, 0, 0</span><br><span class="line">	invoke ExitProcess, 0</span><br><span class="line">main endp</span><br><span class="line">end main ; main 是一个标号，END main 是告诉编译器，起始位置在哪</span><br></pre></td></tr></table></figure>
 
 <p>运行效果：</p>
 <p><img src="https://gitee.com/rkhorse/blogimgs/raw/master/imgs/image-20210414042355367.png" alt="image-20210414042355367"></p>
@@ -100,20 +60,43 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
-    <title>Windows网络编程基础</title>
-    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<blockquote>
-<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
-</blockquote>
+    <title>IDA动态调试ELF文件</title>
+    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>IDA动态调试ELF文件</p>
 <span id="more"></span>
 
-<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
-      <categories>
-        <category>Windows网络编程</category>
-      </categories>
+<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
+<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动linux_server</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
+<blockquote>
+<pre>
+Application: 要调试程序路径
+Directory: 存放呗调试程序的路径
+Hostname：linux主机的ip地址
+其它默认
+</pre>
+</blockquote>
+<p>ok即可进入<code>IDA</code>动态调试。</p>
+]]></content>
       <tags>
-        <tag>网络编程</tag>
-        <tag>Socket</tag>
+        <tag>IDA</tag>
+        <tag>病毒分析</tag>
       </tags>
   </entry>
   <entry>
@@ -127,17 +110,17 @@ Hostname：linux主机的ip地址
 <h4 id="添加站内搜索功能"><a href="#添加站内搜索功能" class="headerlink" title="添加站内搜索功能"></a>添加站内搜索功能</h4><ol>
 <li>下载插件</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="hljs-literal">-generator</span><span class="hljs-literal">-searchdb</span> -<span class="hljs-literal">-save</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="literal">-generator</span><span class="literal">-searchdb</span> -<span class="literal">-save</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>配置站点配置文件<code>E:\code\blog\_config.yml</code>，新增以下内容到任意位置：</li>
 </ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">search:</span><br>  <span class="hljs-attr">path:</span> <span class="hljs-string">search.xml</span><br>  <span class="hljs-attr">field:</span> <span class="hljs-string">post</span><br>  <span class="hljs-attr">format:</span> <span class="hljs-string">html</span><br>  <span class="hljs-attr">limit:</span> <span class="hljs-number">10000</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>编辑主题配置文件<code>E:\code\blog\themes\next\_config.yml</code>，搜索：<code>local_search</code>，将 enable的 <code>false</code>改为<code>true</code></li>
 </ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Local Search</span><br><span class="hljs-comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="hljs-attr">local_search:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local Search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
 <p><img src="https://gitee.com/rkhorse/blogimgs/raw/master/imgs/image-20210414002616875.png" alt="image-20210414002616875"></p>
@@ -160,23 +143,23 @@ Hostname：linux主机的ip地址
 <p>修改主题配置文件<code>E:\code\blog\themes\next\_config.yml</code>，搜索<code>valine</code>找到如下位置配置<code>CDN</code>：</p>
 <p><img src="https://gitee.com/rkhorse/blogimgs/raw/master/imgs/image-20210414014038761.png" alt="image-20210414014038761"></p>
 <p>之后再次搜索<code>valine</code>配置其参数：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Valine</span><br><span class="hljs-comment"># For more information: https://valine.js.org, https://github.com/xCss/Valine</span><br><span class="hljs-attr">valine:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">appid:</span>  <span class="hljs-comment"># Your leancloud application appid，填写注册LearnCloud中 appid</span><br>  <span class="hljs-attr">appkey:</span> <span class="hljs-comment"># Your leancloud application appkey, 填写注册LearnCloud中appkey</span><br>  <span class="hljs-attr">notify:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># Mail notifier</span><br>  <span class="hljs-attr">verify:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># Verification code</span><br>  <span class="hljs-attr">placeholder:</span> <span class="hljs-string">欢迎畅所欲言</span> <span class="hljs-comment"># Comment box placeholder</span><br>  <span class="hljs-attr">avatar:</span> <span class="hljs-string">mm</span> <span class="hljs-comment"># Gravatar style</span><br>  <span class="hljs-attr">guest_info:</span> <span class="hljs-string">nick,mail,link</span> <span class="hljs-comment"># Custom comment header</span><br>  <span class="hljs-attr">pageSize:</span> <span class="hljs-number">10</span> <span class="hljs-comment"># Pagination size</span><br>  <span class="hljs-attr">language:</span> <span class="hljs-string">zn-ch</span> <span class="hljs-comment"># Language, available values: en, zh-cn</span><br>  <span class="hljs-attr">visitor:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Article reading statistic</span><br>  <span class="hljs-attr">comment_count:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># If false, comment count will only be displayed in post page, not in home page</span><br>  <span class="hljs-attr">recordIP:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Whether to record the commenter IP</span><br>  <span class="hljs-attr">serverURLs:</span> <span class="hljs-comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span><br>  <span class="hljs-comment">#post_meta_order: 0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># For more information: https://valine.js.org, https://github.com/xCss/Valine</span></span><br><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="comment"># Your leancloud application appid，填写注册LearnCloud中 appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey, 填写注册LearnCloud中appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">欢迎畅所欲言</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zn-ch</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">true</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>PS：关闭指定文章的评论功能：</p>
 <p>在对应<code>markdown</code>文件中头部添加<code>comments: false</code></p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">title:</span> 标签<br><span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;tags&quot;</span><br><span class="hljs-symbol">comments:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">title:</span> 标签</span><br><span class="line"><span class="symbol">type:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="symbol">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h4><ol>
 <li>安装插件</li>
 </ol>
 <p>在站点目录<code>E:</code>打开终端：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; npm uninstall hexo<span class="hljs-literal">-generator</span><span class="hljs-literal">-index</span> -<span class="hljs-literal">-save</span><br><span class="hljs-built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="hljs-literal">-generator</span><span class="hljs-literal">-index</span><span class="hljs-literal">-pin</span><span class="hljs-literal">-top</span> -<span class="hljs-literal">-save</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm uninstall hexo<span class="literal">-generator</span><span class="literal">-index</span> -<span class="literal">-save</span></span><br><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="literal">-generator</span><span class="literal">-index</span><span class="literal">-pin</span><span class="literal">-top</span> -<span class="literal">-save</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>在需要置顶的文章的<code>Front-matter</code>中加上<code>top: true</code></li>
 </ol>
-<figure class="highlight nsis"><table><tr><td class="code"><pre><code class="hljs nsis"><span class="hljs-literal">top</span>: <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line"><span class="literal">top</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
 <p><strong>参考文档</strong></p>
@@ -190,117 +173,6 @@ Hostname：linux主机的ip地址
       </categories>
       <tags>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+Gitee搭建个人博客</title>
-    <url>/2021/04/12/hexo+gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<blockquote>
-<p>利用Hexo+gitee搭建个人博客</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="0x1-hexo"><a href="#0x1-hexo" class="headerlink" title="0x1 hexo"></a>0x1 hexo</h3><ul>
-<li>安装node.js</li>
-<li>安装git</li>
-<li>新建文件夹<code>E:\code\blog</code>，打开终端</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo init<br><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo g<br><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo s<br></code></pre></td></tr></table></figure>
-
-<p>其中<code>hexo init</code>为安装<code>hexo</code>环境，<code>hexo g</code>生成静态页面，<code>hexo s</code>启动hexo服务。</p>
-<p>之后在浏览器验证：<a href="http://localhost:4000/">http://localhost:4000</a></p>
-<h3 id="0x2-安装hexo主题"><a href="#0x2-安装hexo主题" class="headerlink" title="0x2 安装hexo主题"></a>0x2 安装hexo主题</h3><ul>
-<li>安装<a href="https://github.com/theme-next/hexo-theme-next">next主题</a></li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; git clone https://github.com/theme<span class="hljs-literal">-next</span>/hexo<span class="hljs-literal">-theme</span><span class="hljs-literal">-next</span> themes/next<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>更新</li>
-</ul>
-<p>NexT 每个月都会发布新版本。你可以通过如下命令更新到最新的 master 分支：</p>
-<figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">PS E:<span class="hljs-symbol">\c</span>ode<span class="hljs-symbol">\b</span>log&gt; cd themes/next<br>PS E:<span class="hljs-symbol">\c</span>ode<span class="hljs-symbol">\b</span>log<span class="hljs-symbol">\t</span>hemes/next&gt; git pull<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>安装swig组件</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; npm i hexo<span class="hljs-literal">-renderer</span><span class="hljs-literal">-swig</span><br></code></pre></td></tr></table></figure>
-
-<p>说明：在hexo在5.0之后把swig给删除了，所以需要自己手动安装</p>
-<ul>
-<li>修改hexo配置文件：<code>E:\code\blog\_config.yml</code></li>
-</ul>
-<p>搜索<code>theme:</code>，修改为<code>theme: next</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">theme: next<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>验证主题</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo g<br><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo s <span class="hljs-literal">-debug</span><br></code></pre></td></tr></table></figure>
-
-<p>之后在浏览器中验证：<a href="http://localhost:4000/">http://localhost:4000</a></p>
-<ul>
-<li>优化主题：具体查看<a href="http://theme-next.iissnan.com/">NexT使用手册</a></li>
-</ul>
-<h3 id="0x3-部署Gitee"><a href="#0x3-部署Gitee" class="headerlink" title="0x3 部署Gitee"></a>0x3 部署Gitee</h3><ul>
-<li>申请gitee账号</li>
-<li>新建仓库</li>
-</ul>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">仓库名称: blog</span><br><span class="hljs-section">路径: 和用户名一样</span><br><span class="hljs-section">是否开源: 公开</span><br>其他默认<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>配置ssh密钥</li>
-</ul>
-<p>进入设置–&gt;安全设置–&gt;SSH公钥</p>
-<p><img src="https://i.loli.net/2021/04/12/NmjPqQFAod9HRhZ.png" alt="image-20210412084510245"></p>
-<p>简单的说就是，在命令行中：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>进入创建后的仓库–&gt;服务–&gt;Gitee Pages</li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/mA14N7L9FYykIED.png" alt="image-20210412084118636"></p>
-<p>可以看到自己搭建blog网站地址：</p>
-<p><img src="https://i.loli.net/2021/04/12/u6R7e95ftwKHBCJ.png" alt="image-20210412084311593"></p>
-<h3 id="0x4-开始部署"><a href="#0x4-开始部署" class="headerlink" title="0x4 开始部署"></a>0x4 开始部署</h3><h4 id="0x4-1-本地部署"><a href="#0x4-1-本地部署" class="headerlink" title="0x4.1 本地部署"></a>0x4.1 本地部署</h4><p>在<code>主题根目录</code>打开终端：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo g; hexo s;<br></code></pre></td></tr></table></figure>
-
-<p>之后打开：<a href="http://localhost:4000/%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F">http://localhost:4000/验证是否部署成功</a></p>
-<h4 id="0x4-2-部署到Gitee和GitHub"><a href="#0x4-2-部署到Gitee和GitHub" class="headerlink" title="0x4.2 部署到Gitee和GitHub"></a>0x4.2 部署到Gitee和GitHub</h4><ol>
-<li>安装部署插件</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="hljs-literal">-deployer</span><span class="hljs-literal">-git</span> -<span class="hljs-literal">-save</span><br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>修改部署配置</li>
-</ol>
-<p>复制刚刚创建的仓库地址：</p>
-<ul>
-<li><p><code>https</code>：部署需要账户密码。</p>
-</li>
-<li><p><code>ssh</code>：部署不需要密码，但需要先配置一下<code>ssh key</code></p>
-</li>
-</ul>
-<p>在站点配置文件 <code>E:\code\blog\_config.yml</code> 中修改参数：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> git@github.com:rkhorse/rkhorse.github.io.git <span class="hljs-meta"># 仓库地址</span><br><span class="hljs-symbol">  branch:</span> master <span class="hljs-meta"># 部署分支</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：部署分支要和我们远端仓库的部署分支对应，没设置的话<code>Hexo</code>会自动创建一个分支作为部署分支。</p>
-</blockquote>
-<p>同时部署到<code>Github</code>和<code>Gitee</code>的<code>deploy参数</code>配置：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span><br>    <span class="hljs-meta"># 部署到github  </span><br><span class="hljs-symbol">    github:</span> git@github.com:rkhorse/rkhorse.github.io.git<br>    <span class="hljs-meta"># 部署到gitee</span><br><span class="hljs-symbol">    gitee:</span> https:<span class="hljs-comment">//gitee.com/rkhorse/rkhorse.git</span><br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>执行<code>部署命令</code></li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> E:\code\blog&gt; hexo clean; hexo g; hexo d;<br></code></pre></td></tr></table></figure>
-
-<h3 id="0x5-参考文档"><a href="#0x5-参考文档" class="headerlink" title="0x5 参考文档"></a>0x5 参考文档</h3><ul>
-<li>hexo 官网：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>gitee</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -345,13 +217,141 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
+    <title>Windows网络编程基础</title>
+    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<blockquote>
+<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
+      <categories>
+        <category>Windows网络编程</category>
+      </categories>
+      <tags>
+        <tag>网络编程</tag>
+        <tag>Socket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Gitee搭建个人博客</title>
+    <url>/2021/04/12/hexo+gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<blockquote>
+<p>利用Hexo+gitee搭建个人博客</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="0x1-hexo"><a href="#0x1-hexo" class="headerlink" title="0x1 hexo"></a>0x1 hexo</h3><ul>
+<li>安装node.js</li>
+<li>安装git</li>
+<li>新建文件夹<code>E:\code\blog</code>，打开终端</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo init</span><br><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo g</span><br><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo s</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>hexo init</code>为安装<code>hexo</code>环境，<code>hexo g</code>生成静态页面，<code>hexo s</code>启动hexo服务。</p>
+<p>之后在浏览器验证：<a href="http://localhost:4000/">http://localhost:4000</a></p>
+<h3 id="0x2-安装hexo主题"><a href="#0x2-安装hexo主题" class="headerlink" title="0x2 安装hexo主题"></a>0x2 安装hexo主题</h3><ul>
+<li>安装<a href="https://github.com/theme-next/hexo-theme-next">next主题</a></li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; git clone https://github.com/theme<span class="literal">-next</span>/hexo<span class="literal">-theme</span><span class="literal">-next</span> themes/next</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新</li>
+</ul>
+<p>NexT 每个月都会发布新版本。你可以通过如下命令更新到最新的 master 分支：</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">PS E:<span class="symbol">\c</span>ode<span class="symbol">\b</span>log&gt; cd themes/next</span><br><span class="line">PS E:<span class="symbol">\c</span>ode<span class="symbol">\b</span>log<span class="symbol">\t</span>hemes/next&gt; git pull</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装swig组件</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm i hexo<span class="literal">-renderer</span><span class="literal">-swig</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：在hexo在5.0之后把swig给删除了，所以需要自己手动安装</p>
+<ul>
+<li>修改hexo配置文件：<code>E:\code\blog\_config.yml</code></li>
+</ul>
+<p>搜索<code>theme:</code>，修改为<code>theme: next</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>验证主题</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo g</span><br><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo s <span class="literal">-debug</span></span><br></pre></td></tr></table></figure>
+
+<p>之后在浏览器中验证：<a href="http://localhost:4000/">http://localhost:4000</a></p>
+<ul>
+<li>优化主题：具体查看<a href="http://theme-next.iissnan.com/">NexT使用手册</a></li>
+</ul>
+<h3 id="0x3-部署Gitee"><a href="#0x3-部署Gitee" class="headerlink" title="0x3 部署Gitee"></a>0x3 部署Gitee</h3><ul>
+<li>申请gitee账号</li>
+<li>新建仓库</li>
+</ul>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">仓库名称: blog</span></span><br><span class="line"><span class="section">路径: 和用户名一样</span></span><br><span class="line"><span class="section">是否开源: 公开</span></span><br><span class="line">其他默认</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置ssh密钥</li>
+</ul>
+<p>进入设置–&gt;安全设置–&gt;SSH公钥</p>
+<p><img src="https://i.loli.net/2021/04/12/NmjPqQFAod9HRhZ.png" alt="image-20210412084510245"></p>
+<p>简单的说就是，在命令行中：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入创建后的仓库–&gt;服务–&gt;Gitee Pages</li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/mA14N7L9FYykIED.png" alt="image-20210412084118636"></p>
+<p>可以看到自己搭建blog网站地址：</p>
+<p><img src="https://i.loli.net/2021/04/12/u6R7e95ftwKHBCJ.png" alt="image-20210412084311593"></p>
+<h3 id="0x4-开始部署"><a href="#0x4-开始部署" class="headerlink" title="0x4 开始部署"></a>0x4 开始部署</h3><h4 id="0x4-1-本地部署"><a href="#0x4-1-本地部署" class="headerlink" title="0x4.1 本地部署"></a>0x4.1 本地部署</h4><p>在<code>主题根目录</code>打开终端：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo g; hexo s;</span><br></pre></td></tr></table></figure>
+
+<p>之后打开：<a href="http://localhost:4000/%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F">http://localhost:4000/验证是否部署成功</a></p>
+<h4 id="0x4-2-部署到Gitee和GitHub"><a href="#0x4-2-部署到Gitee和GitHub" class="headerlink" title="0x4.2 部署到Gitee和GitHub"></a>0x4.2 部署到Gitee和GitHub</h4><ol>
+<li>安装部署插件</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="literal">-deployer</span><span class="literal">-git</span> -<span class="literal">-save</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改部署配置</li>
+</ol>
+<p>复制刚刚创建的仓库地址：</p>
+<ul>
+<li><p><code>https</code>：部署需要账户密码。</p>
+</li>
+<li><p><code>ssh</code>：部署不需要密码，但需要先配置一下<code>ssh key</code></p>
+</li>
+</ul>
+<p>在站点配置文件 <code>E:\code\blog\_config.yml</code> 中修改参数：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span> git@github.com:rkhorse/rkhorse.github.io.git <span class="meta"># 仓库地址</span></span><br><span class="line"><span class="symbol">  branch:</span> master <span class="meta"># 部署分支</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：部署分支要和我们远端仓库的部署分支对应，没设置的话<code>Hexo</code>会自动创建一个分支作为部署分支。</p>
+</blockquote>
+<p>同时部署到<code>Github</code>和<code>Gitee</code>的<code>deploy参数</code>配置：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span></span><br><span class="line">    <span class="meta"># 部署到github  </span></span><br><span class="line"><span class="symbol">    github:</span> git@github.com:rkhorse/rkhorse.github.io.git</span><br><span class="line">    <span class="meta"># 部署到gitee</span></span><br><span class="line"><span class="symbol">    gitee:</span> https:<span class="comment">//gitee.com/rkhorse/rkhorse.git</span></span><br><span class="line"><span class="symbol">  branch:</span> master</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>执行<code>部署命令</code></li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; hexo clean; hexo g; hexo d;</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x5-参考文档"><a href="#0x5-参考文档" class="headerlink" title="0x5 参考文档"></a>0x5 参考文档</h3><ul>
+<li>hexo 官网：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>gitee</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo文章默认模板设置</title>
     <url>/2021/04/12/hexo%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<p>Hexo文章默认模板设置</p>
 <span id="more"></span>
 
 <p>修改<code>scaffolds</code>文件夹中的<code>post</code>模板。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">title: &#123;&#123; title &#125;&#125;<br>date: &#123;&#123; date &#125;&#125;<br>urlname:<br>categories:<br>tags: <br></code></pre></td></tr></table></figure>]]></content>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">urlname:</span><br><span class="line">categories:</span><br><span class="line">tags: </span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>hexo</tag>
       </tags>

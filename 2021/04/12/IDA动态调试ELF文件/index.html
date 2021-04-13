@@ -277,17 +277,17 @@
 <h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
 <li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">32</span>位: IDA目录\dbgsrv\linux_server<br><span class="hljs-number">64</span>位: IDA目录\dbgsrv\linux_server64<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ chmod +x linux_server64<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>启动linux_server</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ./linux_server64</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
