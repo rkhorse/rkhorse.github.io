@@ -146,6 +146,18 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
+    <title>Hexo文章默认模板设置</title>
+    <url>/2021/04/12/hexo%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>Hexo文章默认模板设置</p>
+<span id="more"></span>
+
+<p>修改<code>scaffolds</code>文件夹中的<code>post</code>模板。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">urlname:</span><br><span class="line">categories:</span><br><span class="line">tags: </span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+Gitee搭建个人博客</title>
     <url>/2021/04/12/hexo+gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<blockquote>
@@ -252,20 +264,8 @@ Hostname：linux主机的ip地址
 </ul>
 ]]></content>
       <tags>
+        <tag>hexo</tag>
         <tag>gitee</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo文章默认模板设置</title>
-    <url>/2021/04/12/hexo%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>Hexo文章默认模板设置</p>
-<span id="more"></span>
-
-<p>修改<code>scaffolds</code>文件夹中的<code>post</code>模板。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">urlname:</span><br><span class="line">categories:</span><br><span class="line">tags: </span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
