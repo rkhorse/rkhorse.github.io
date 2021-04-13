@@ -1220,7 +1220,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffd496;
+  background: #67ee7a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2539,6 +2539,9 @@ hr {
 .sub-menu .menu-item {
   display: inline-block;
 }
+.post-block {
+  background: #fff;
+}
 code {
   color: #c7254e;
   background: #f9f2f4;
@@ -2571,4 +2574,65 @@ body {
 }
 .posts-expand .post-block:not(:first-child) {
   margin-top: 0px;
+}
+.sidebar {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.posts-expand .post-title-link::before {
+  background-image: linear-gradient(90deg, #a166ab 0, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
+}
+.posts-collapse .post-meta {
+  color: #5073b8;
+  font-weight: 900;
+}
+.posts-collapse .post-title {
+  margin-left: 70px;
+}
+.posts-collapse .post-header {
+  position: relative;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: inherit;
+  box-shadow: 0 1px 3px #222, 0 1px 2px #222;
+  padding: 2px 10px;
+  margin: 8px;
+  background: rgba(193,66,92,0);
+  border-bottom: none;
+  border-radius: 20px;
+}
+.posts-collapse::before {
+  background-image: linear-gradient(180deg, #f79533 0, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
+}
+.page-archive .posts-collapse .archive-move-on {
+  background-color: #fc6423;
+}
+.posts-collapse .collection-title::before {
+  background-color: #fc6423;
+}
+.posts-collapse .post-header::before {
+  background-color: rgba(240,255,255,0);
+}
+.tag-cloud a {
+  box-shadow: 0 1px 3px #222, 0 1px 2px #222;
+  padding: 2px 10px;
+  margin: 8px;
+  background: rgba(193,66,92,0);
+  border-bottom: none;
+  border-radius: 20px;
+}
+.post-body {
+  font-size: 1em;
+}
+::selection {
+  background-color: #59ff83;
+  color: #555;
+}
+blockquote {
+  border-left: 4px solid #5073b8;
+  color: var(--blockquote-color);
+  margin: 0;
+  padding: 0 15px;
 }
