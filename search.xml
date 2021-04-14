@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>IDA动态调试ELF文件</title>
+    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>IDA动态调试ELF文件</p>
+<span id="more"></span>
+
+<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
+<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动linux_server</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
+<blockquote>
+<pre>
+Application: 要调试程序路径
+Directory: 存放呗调试程序的路径
+Hostname：linux主机的ip地址
+其它默认
+</pre>
+</blockquote>
+<p>ok即可进入<code>IDA</code>动态调试。</p>
+]]></content>
+      <tags>
+        <tag>IDA</tag>
+        <tag>病毒分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一.汇编概述</title>
     <url>/2021/04/14/01.%E6%B1%87%E7%BC%96%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<blockquote>
@@ -71,43 +111,20 @@
       </tags>
   </entry>
   <entry>
-    <title>IDA动态调试ELF文件</title>
-    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>IDA动态调试ELF文件</p>
+    <title>Windows网络编程基础</title>
+    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<blockquote>
+<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
+</blockquote>
 <span id="more"></span>
 
-<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
-<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>启动linux_server</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
-<blockquote>
-<pre>
-Application: 要调试程序路径
-Directory: 存放呗调试程序的路径
-Hostname：linux主机的ip地址
-其它默认
-</pre>
-</blockquote>
-<p>ok即可进入<code>IDA</code>动态调试。</p>
-]]></content>
+<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
+      <categories>
+        <category>Windows网络编程</category>
+      </categories>
       <tags>
-        <tag>IDA</tag>
-        <tag>病毒分析</tag>
+        <tag>网络编程</tag>
+        <tag>Socket</tag>
       </tags>
   </entry>
   <entry>
@@ -171,7 +188,7 @@ Hostname：linux主机的ip地址
 
 <p>之后搜索<code>footer</code>并在上方添加：</p>
 <p><img src="https://gitee.com/rkhorse/blogimgs/raw/master/imgs/image-20210415000207308.png" alt="image-20210415000207308"></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">      本站访客数: &lt;span id=<span class="string">&quot;busuanzi_value_site_uv&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次</span><br><span class="line">&lt;/<span class="selector-tag">span</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="实现统计功能"><a href="#实现统计功能" class="headerlink" title="实现统计功能"></a>实现统计功能</h4><p><strong>效果</strong>：</p>
 <ul>
@@ -210,64 +227,6 @@ Hostname：linux主机的ip地址
       </categories>
       <tags>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PicGo+Typora+Gitee配置图床</title>
-    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
-<span id="more"></span>
-
-<blockquote>
-<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
-<ul>
-<li>下载插件</li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
-<ul>
-<li>设置图床</li>
-</ul>
-<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
-<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
-<ul>
-<li>配置gitee私人令牌</li>
-</ul>
-<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
-<blockquote>
-<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
-<p>打开typora–&gt;偏好设置–&gt;图像</p>
-<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
-<hr>
-<blockquote>
-<p>总结：</p>
-<ul>
-<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
-<li>申请gitee私人令牌</li>
-<li>配置typora图像设置为上传服务</li>
-</ul>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>PicGo</tag>
-        <tag>typora</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows网络编程基础</title>
-    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<blockquote>
-<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
-      <categories>
-        <category>Windows网络编程</category>
-      </categories>
-      <tags>
-        <tag>网络编程</tag>
-        <tag>Socket</tag>
       </tags>
   </entry>
   <entry>
@@ -377,8 +336,49 @@ Hostname：linux主机的ip地址
 </ul>
 ]]></content>
       <tags>
-        <tag>gitee</tag>
         <tag>hexo</tag>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PicGo+Typora+Gitee配置图床</title>
+    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
+<ul>
+<li>下载插件</li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
+<ul>
+<li>设置图床</li>
+</ul>
+<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
+<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
+<ul>
+<li>配置gitee私人令牌</li>
+</ul>
+<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
+<blockquote>
+<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
+<p>打开typora–&gt;偏好设置–&gt;图像</p>
+<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
+<hr>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
+<li>申请gitee私人令牌</li>
+<li>配置typora图像设置为上传服务</li>
+</ul>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>PicGo</tag>
+        <tag>typora</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
