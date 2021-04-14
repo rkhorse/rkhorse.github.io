@@ -1220,7 +1220,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d2ff28;
+  background: #ff1b95;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2631,4 +2631,8 @@ blockquote {
   color: var(--blockquote-color);
   margin: 0;
   padding: 0 15px;
+}
+:root {
+  --link-hover-color: #202ade;
+  --btn-default-hover-color: var(--link-hover-color);
 }
