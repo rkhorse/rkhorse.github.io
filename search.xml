@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IDA动态调试ELF文件</title>
-    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>IDA动态调试ELF文件</p>
-<span id="more"></span>
-
-<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
-<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>启动linux_server</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
-<blockquote>
-<pre>
-Application: 要调试程序路径
-Directory: 存放呗调试程序的路径
-Hostname：linux主机的ip地址
-其它默认
-</pre>
-</blockquote>
-<p>ok即可进入<code>IDA</code>动态调试。</p>
-]]></content>
-      <tags>
-        <tag>IDA</tag>
-        <tag>病毒分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一.汇编概述</title>
     <url>/2021/04/14/01.%E6%B1%87%E7%BC%96%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<blockquote>
@@ -100,44 +60,63 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
-    <title>kali-linux基本使用</title>
-    <url>/2021/04/15/kali-linux%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <title>一.C#基本概述及快速入门</title>
+    <url>/2021/04/14/C#_01_%E5%9F%BA%E6%9C%AC%E6%A6%82%E8%BF%B0%E5%8F%8A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<blockquote>
-<p>记录着平常使用kali过程中的操作</p>
+<p>学习整理基础语法，方便后面对.Net程序的分析</p>
 </blockquote>
 <span id="more"></span>
 
-<h3 id="0x01-kali-安装"><a href="#0x01-kali-安装" class="headerlink" title="0x01 kali 安装"></a>0x01 kali 安装</h3><h4 id="kali-linux操作系统安装"><a href="#kali-linux操作系统安装" class="headerlink" title="kali-linux操作系统安装"></a>kali-linux操作系统安装</h4><p>进入官网，直接下载 <a href="https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/">kali-vmware的虚拟机</a>，之后解压过后用<code>vmware</code>打开即可。</p>
-<h4 id="kali切换到中文环境"><a href="#kali切换到中文环境" class="headerlink" title="kali切换到中文环境"></a>kali切换到中文环境</h4><ol>
-<li>打开终端，输入：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg-reconfigure locales</span></span><br></pre></td></tr></table></figure>
 
-<p>选择<code>en_US.UTF-8</code>，<code>zh_CN.GBK</code>，<code>zh_CN.UTF-8</code>这3个字符集，其中<code>空格键</code>选择，选择完毕后<code>TAB</code>切换到ok选项进入下一步</p>
-<ol start="2">
-<li><p>然后选择字符编码：<code>zh_CN.UTF-8</code></p>
-</li>
-<li><p>重启，终端输入：</p>
-</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo reboot</span></span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>重启之后，选择<code>保留原文件名</code>，并勾选<code>下次不显示</code></li>
-</ol>
-<h4 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mv JetBrainsMono-Bold.ttf /usr/share/fonts/truetype/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /usr/share/fonts/truetype/</span></span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo fc-cache</span><br></pre></td></tr></table></figure>
 
-<h4 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h4><p>终端输入<code>vim /etc/apt/sources.list</code>添加内容：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> http<span class="variable">s:</span>//mirrors.ustc.edu.<span class="keyword">cn</span>/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http<span class="variable">s:</span>//mirrors.ustc.edu.<span class="keyword">cn</span>/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
 
-<p><code>vim</code>使用<code>w !sudo tee *%*</code>命令保存只读文件；</p>
-<h4 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h4>]]></content>
+]]></content>
       <categories>
-        <category>kali</category>
+        <category>C#</category>
       </categories>
       <tags>
-        <tag>linux</tag>
-        <tag>kali</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDA动态调试ELF文件</title>
+    <url>/2021/04/12/IDA%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95ELF%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>IDA动态调试ELF文件</p>
+<span id="more"></span>
+
+<h2 id="IDA动态调试ELF文件"><a href="#IDA动态调试ELF文件" class="headerlink" title="IDA动态调试ELF文件"></a>IDA动态调试ELF文件</h2><ul>
+<li>找到<code>IDA根目录</code>，复制<code>linux_server</code>到<code>linux</code>系统中</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">32</span>位: IDA目录\dbgsrv\linux_server</span><br><span class="line"><span class="number">64</span>位: IDA目录\dbgsrv\linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>linux</code>中，进入<code>linux_server</code>所在目录，给<code>linux_server</code>赋予可执行权限</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x linux_server64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动linux_server</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./linux_server64</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>windows</code>端打开对应版本<code>IDA</code>，菜单栏中<code>Debugger--&gt;Run--&gt;Romote Linux debugger</code></li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/jXTlWQ9k1G5wnyJ.png" alt="image-20210412235436807"></p>
+<blockquote>
+<pre>
+Application: 要调试程序路径
+Directory: 存放呗调试程序的路径
+Hostname：linux主机的ip地址
+其它默认
+</pre>
+</blockquote>
+<p>ok即可进入<code>IDA</code>动态调试。</p>
+]]></content>
+      <tags>
+        <tag>IDA</tag>
+        <tag>病毒分析</tag>
       </tags>
   </entry>
   <entry>
@@ -162,34 +141,6 @@ Hostname：linux主机的ip地址
       <tags>
         <tag>linux</tag>
         <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一.C#基本概述及快速入门</title>
-    <url>/2021/04/14/C#_01_%E5%9F%BA%E6%9C%AC%E6%A6%82%E8%BF%B0%E5%8F%8A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows网络编程基础</title>
-    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<blockquote>
-<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
-      <categories>
-        <category>Windows网络编程</category>
-      </categories>
-      <tags>
-        <tag>网络编程</tag>
-        <tag>Socket</tag>
       </tags>
   </entry>
   <entry>
@@ -321,6 +272,64 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
+    <title>PicGo+Typora+Gitee配置图床</title>
+    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
+<ul>
+<li>下载插件</li>
+</ul>
+<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
+<ul>
+<li>设置图床</li>
+</ul>
+<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
+<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
+<ul>
+<li>配置gitee私人令牌</li>
+</ul>
+<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
+<blockquote>
+<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
+<p>打开typora–&gt;偏好设置–&gt;图像</p>
+<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
+<hr>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
+<li>申请gitee私人令牌</li>
+<li>配置typora图像设置为上传服务</li>
+</ul>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>PicGo</tag>
+        <tag>typora</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows网络编程基础</title>
+    <url>/2021/04/14/Windows%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<blockquote>
+<p>Winsock 是Windows 下网络编程的标准接口，它允许两个或多个应用程序在相同机器上，或者是通过网络相互交流。Winsock 是真正的协议无关的接口，本文主要讲述如何使用它来编写应用层的网络应用程序。 </p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="0x1-概述"><a href="#0x1-概述" class="headerlink" title="0x1.概述"></a>0x1.概述</h2>]]></content>
+      <categories>
+        <category>Windows网络编程</category>
+      </categories>
+      <tags>
+        <tag>网络编程</tag>
+        <tag>Socket</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+Gitee搭建个人博客</title>
     <url>/2021/04/12/hexo+gitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<blockquote>
@@ -432,47 +441,6 @@ Hostname：linux主机的ip地址
       </tags>
   </entry>
   <entry>
-    <title>PicGo+Typora+Gitee配置图床</title>
-    <url>/2021/04/12/PicGo+Typora+Gitee%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<p>PicGo+Typora+Gitee配置图床</p>
-<span id="more"></span>
-
-<blockquote>
-<h2 id="0x1-PicGo"><a href="#0x1-PicGo" class="headerlink" title="0x1 PicGo"></a>0x1 PicGo</h2></blockquote>
-<ul>
-<li>下载插件</li>
-</ul>
-<p><img src="https://i.loli.net/2021/04/12/Zpsze56VDAqYJkN.png" alt="image-20210412074002547"></p>
-<ul>
-<li>设置图床</li>
-</ul>
-<p>打开PicGo–&gt;图床设置–&gt;Gitee图床–&gt;设置相关选项</p>
-<p><img src="https://i.loli.net/2021/04/12/dflEweIJWAj2K1B.png" alt="image-20210412074326384"></p>
-<ul>
-<li>配置gitee私人令牌</li>
-</ul>
-<p>设置–&gt;安全设置–&gt;私人令牌–&gt;生成私人令牌，记住私人令牌，复制到上图中的 token 选项中。</p>
-<blockquote>
-<h2 id="0x2-Typora"><a href="#0x2-Typora" class="headerlink" title="0x2 Typora"></a>0x2 Typora</h2></blockquote>
-<p>打开typora–&gt;偏好设置–&gt;图像</p>
-<p><img src="https://i.loli.net/2021/04/12/mC41r2bo7RqvZyN.png" alt="image-20210412074833360"></p>
-<hr>
-<blockquote>
-<p>总结：</p>
-<ul>
-<li>下载PicGo–&gt;下载Gitee图床插件–&gt;配置该插件</li>
-<li>申请gitee私人令牌</li>
-<li>配置typora图像设置为上传服务</li>
-</ul>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>PicGo</tag>
-        <tag>typora</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo文章默认模板设置</title>
     <url>/2021/04/12/hexo%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<p>Hexo文章默认模板设置</p>
@@ -482,6 +450,47 @@ Hostname：linux主机的ip地址
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">urlname:</span><br><span class="line">categories:</span><br><span class="line">tags: </span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kali-linux基本使用</title>
+    <url>/2021/04/15/kali-linux%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<blockquote>
+<p>记录着平常使用kali过程中的操作</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="0x01-kali-安装"><a href="#0x01-kali-安装" class="headerlink" title="0x01 kali 安装"></a>0x01 kali 安装</h3><h4 id="kali-linux操作系统安装"><a href="#kali-linux操作系统安装" class="headerlink" title="kali-linux操作系统安装"></a>kali-linux操作系统安装</h4><p>进入官网，直接下载 <a href="https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/">kali-vmware的虚拟机</a>，之后解压过后用<code>vmware</code>打开即可。</p>
+<h4 id="kali切换到中文环境"><a href="#kali切换到中文环境" class="headerlink" title="kali切换到中文环境"></a>kali切换到中文环境</h4><ol>
+<li>打开终端，输入：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg-reconfigure locales</span></span><br></pre></td></tr></table></figure>
+
+<p>选择<code>en_US.UTF-8</code>，<code>zh_CN.GBK</code>，<code>zh_CN.UTF-8</code>这3个字符集，其中<code>空格键</code>选择，选择完毕后<code>TAB</code>切换到ok选项进入下一步</p>
+<ol start="2">
+<li><p>然后选择字符编码：<code>zh_CN.UTF-8</code></p>
+</li>
+<li><p>重启，终端输入：</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo reboot</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>重启之后，选择<code>保留原文件名</code>，并勾选<code>下次不显示</code></li>
+</ol>
+<h4 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mv JetBrainsMono-Bold.ttf /usr/share/fonts/truetype/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /usr/share/fonts/truetype/</span></span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo fc-cache</span><br></pre></td></tr></table></figure>
+
+<h4 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h4><p>终端输入<code>vim /etc/apt/sources.list</code>添加内容：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">deb</span> http<span class="variable">s:</span>//mirrors.ustc.edu.<span class="keyword">cn</span>/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http<span class="variable">s:</span>//mirrors.ustc.edu.<span class="keyword">cn</span>/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+
+<p><code>vim</code>使用<code>w !sudo tee *%*</code>命令保存只读文件；</p>
+<h4 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h4>]]></content>
+      <categories>
+        <category>kali</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>kali</tag>
       </tags>
   </entry>
 </search>
