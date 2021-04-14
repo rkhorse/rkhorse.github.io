@@ -190,6 +190,14 @@ Hostname：linux主机的ip地址
 <p><img src="https://gitee.com/rkhorse/blogimgs/raw/master/imgs/image-20210415000207308.png" alt="image-20210415000207308"></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数:&lt;span id=<span class="string">&quot;busuanzi_value_site_uv&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
+<p>效果：</p>
+<h4 id="实现统计功能"><a href="#实现统计功能" class="headerlink" title="实现统计功能"></a>实现统计功能</h4><p>进入博客目录<code>E:\code\blog&gt;</code>执行命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\code\blog&gt; npm install hexo<span class="literal">-symbols</span><span class="literal">-count</span><span class="literal">-time</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h4 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h4><ol>
 <li>安装插件</li>
 </ol>
