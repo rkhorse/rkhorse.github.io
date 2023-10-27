@@ -1651,7 +1651,7 @@ pre code {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  width: 90%;
+  width: calc(100% - 20px);
 }
 @media (max-width: 767px) {
   .footer-inner {
@@ -1660,12 +1660,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 90%;
+    width: 1160px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 90%;
+    width: 73%;
   }
 }
 .use-motion .footer {
@@ -2547,7 +2547,7 @@ header.header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 90%;
+  width: calc(100% - 20px);
 }
 @media (max-width: 767px) {
   .main {
@@ -2556,12 +2556,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 90%;
+    width: 1160px;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 90%;
+    width: 73%;
   }
 }
 @media (max-width: 991px) {
@@ -2865,7 +2865,21 @@ header.header {
   display: none !important;
 }
 .post-button .btn {
-  border-radius: 50px; /* 修改为圆角值，可以根据需要调整 */
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--btn-default-border-color);
+  padding: 0;
+  transition-property: border;
+}
+.post-button {
+  margin-top: 10px;
+  text-align: left;
+}
+.posts-expand.index .post-header {
+  text-align: left;
+}
+.posts-expand.index .post-meta {
+  justify-content: flex-start;
 }
 .posts-expand .post-title-link::before {
   background: #fc9d9a;
